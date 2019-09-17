@@ -22,7 +22,7 @@ import javax.persistence.TemporalType;
 @Table(name="task")
 @NamedQuery(name="Task.findAll", query="SELECT t FROM Task t")
 public class Task implements Serializable {
-	private static final Long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 	private Long taskId;
 	private Date endDate;
 	private int priority;
