@@ -17,12 +17,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sba.dto.ParentTaskDTO;
 import com.sba.dto.ProjectDTO;
 import com.sba.dto.TaskDTO;
 import com.sba.dto.UserDTO;
+import com.sba.entities.ParentTask;
 import com.sba.entities.Project;
 import com.sba.entities.Task;
 import com.sba.entities.User;
+import com.sba.repository.ParentRepository;
 import com.sba.repository.ProjectRepository;
 import com.sba.repository.TaskRepository;
 import com.sba.repository.UserRepository;
@@ -33,40 +36,15 @@ public class AppController {
 
 	@Autowired
 	UserRepository userRepo;
-	
+
 	@Autowired
 	ProjectRepository projectRepo;
-	
+
 	@Autowired
 	TaskRepository taskRepo;
 
-	/**
-	 * @return the userRepo
-	 */
-	public UserRepository getUserRepo() {
-		return userRepo;
-	}
-
-	/**
-	 * @param userRepo the userRepo to set
-	 */
-	public void setUserRepo(UserRepository userRepo) {
-		this.userRepo = userRepo;
-	}
-
-	/**
-	 * @return the projectRepo
-	 */
-	public ProjectRepository getProjectRepo() {
-		return projectRepo;
-	}
-
-	/**
-	 * @param projectRepo the projectRepo to set
-	 */
-	public void setProjectRepo(ProjectRepository projectRepo) {
-		this.projectRepo = projectRepo;
-	}
+	@Autowired
+	ParentRepository parentRepo;
 
 	@GetMapping(path = "/user", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<UserDTO> getUsers() {
@@ -93,7 +71,7 @@ public class AppController {
 	public void deleteUserById(@PathVariable long id) {
 		userRepo.deleteById(id);
 	}
-	
+
 	@GetMapping(path = "/project", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<ProjectDTO> getProjects() {
 		List<Project> projectList = projectRepo.findAll();
@@ -114,14 +92,15 @@ public class AppController {
 		Project projectEntity = new Project();
 		BeanUtils.copyProperties(projectDto, projectEntity);
 		Project persistedProject = projectRepo.save(projectEntity);
-		System.err.println("persistedProject e" + persistedProject.getProjectId() +" "+projectDto.getManagerId());
-		if(!StringUtils.isEmpty(projectDto.getManagerId())) {
-			System.err.println("persistedProject e" + persistedProject.getProjectId() +" "+projectDto.getManagerId());
+		System.err.println("persistedProject e" + persistedProject.getProjectId() + " " + projectDto.getManagerId());
+		if (!StringUtils.isEmpty(projectDto.getManagerId())) {
+			System.err
+					.println("persistedProject e" + persistedProject.getProjectId() + " " + projectDto.getManagerId());
 			userRepo.addProject(persistedProject.getProjectId(), projectDto.getManagerId());
-			
+
 		}
 	}
-	
+
 	@GetMapping(path = "/task", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<TaskDTO> getTasks() {
 		List<Task> taskList = taskRepo.findAll();
@@ -135,14 +114,29 @@ public class AppController {
 		System.err.println("DTO list Size" + taskDtoList.size());
 		return taskDtoList;
 	}
-	
+
 	@PostMapping(value = "/task", consumes = MediaType.APPLICATION_JSON_VALUE)
 	@Transactional
 	public void createTask(@RequestBody TaskDTO taskDto) {
 		Task taskEntity = new Task();
 		BeanUtils.copyProperties(taskDto, taskEntity);
 		Task persistedTask = taskRepo.save(taskEntity);
-		//System.err.println("persistedProject e" + persistedProject.getProjectId() +" "+taskDto.getManagerId());
-		
+		// System.err.println("persistedProject e" + persistedProject.getProjectId() +"
+		// "+taskDto.getManagerId());
+
+	}
+
+	@GetMapping(path = "/parenttask", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<ParentTaskDTO> getParentTasks() {
+		List<ParentTask> parentTaskList = parentRepo.findAll();
+		System.err.println("parentTaskList list Size" + parentTaskList.size());
+		List<ParentTaskDTO> parentTaskDtoList = new ArrayList<ParentTaskDTO>();
+		for (ParentTask task : parentTaskList) {
+			ParentTaskDTO taskDTO = new ParentTaskDTO();
+			BeanUtils.copyProperties(task, taskDTO);
+			parentTaskDtoList.add(taskDTO);
+		}
+		System.err.println("DTO list Size" + parentTaskDtoList.size());
+		return parentTaskDtoList;
 	}
 }
