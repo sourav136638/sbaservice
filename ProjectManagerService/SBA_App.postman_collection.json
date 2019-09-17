@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "1baff0c5-0f76-478f-9bbc-5e8a6b25646c",
+		"name": "SBA_App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "UsersList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create/UpdateUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"userId\": 1,\n        \"employeeId\": 136638,\n        \"firstname\": \"Chaitali\",\n        \"lastname\": \"Chatterjee\",\n        \"project\": null,\n        \"task\": null\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/user/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProjectList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/project",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"project"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProjectCreate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n        \"projectId\": null,\n        \"project\": \"Project101\",\n        \"startdate\": null,\n        \"enddate\": null,\n        \"priority\": 1,\n        \"managerId\": 6,\n        \"completed\": null\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/project",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"project"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TaskList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Task Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"taskId\": null,\n        \"task\": \"Task 13\",\n        \"startDate\": null,\n        \"endDate\": null,\n        \"priority\": 1,\n        \"status\": \"Open\",\n        \"projectId\": 10,\n        \"parentId\": 10,\n        \"userId\": 0,\n        \"parentTask\": null,\n        \"parent\": false\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"task"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
