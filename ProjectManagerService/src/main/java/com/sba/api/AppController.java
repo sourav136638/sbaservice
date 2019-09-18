@@ -1,14 +1,11 @@
 package com.sba.api;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.transaction.Transactional;
-
-import org.springframework.beans.BeanUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,122 +18,55 @@ import com.sba.dto.ParentTaskDTO;
 import com.sba.dto.ProjectDTO;
 import com.sba.dto.TaskDTO;
 import com.sba.dto.UserDTO;
-import com.sba.entities.ParentTask;
-import com.sba.entities.Project;
-import com.sba.entities.Task;
-import com.sba.entities.User;
-import com.sba.repository.ParentRepository;
-import com.sba.repository.ProjectRepository;
-import com.sba.repository.TaskRepository;
-import com.sba.repository.UserRepository;
+import com.sba.services.AppServiceImpl;
 
 @RestController
 @RequestMapping(value = "/api", produces = { MediaType.APPLICATION_JSON_VALUE })
 public class AppController {
-
-	@Autowired
-	UserRepository userRepo;
-
-	@Autowired
-	ProjectRepository projectRepo;
-
-	@Autowired
-	TaskRepository taskRepo;
-
-	@Autowired
-	ParentRepository parentRepo;
+	private static final Logger log = LoggerFactory.getLogger(AppController.class);
+	
+	@Autowired 
+	AppServiceImpl service;
+	
 
 	@GetMapping(path = "/user", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<UserDTO> getUsers() {
-		List<User> userList = userRepo.findAll();
-		System.err.println("USer list Size" + userList.size());
-		List<UserDTO> userDtoList = new ArrayList<UserDTO>();
-		for (User user : userList) {
-			UserDTO userDTO = new UserDTO();
-			BeanUtils.copyProperties(user, userDTO);
-			userDtoList.add(userDTO);
-		}
-		System.err.println("DTO list Size" + userDtoList.size());
-		return userDtoList;
+	public List<UserDTO> getUsers() {		
+		return service.getUserList();
 	}
 
 	@PostMapping(value = "/user", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public void createUser(@RequestBody UserDTO userDto) {
-		User userEntity = new User();
-		BeanUtils.copyProperties(userDto, userEntity);
-		userRepo.save(userEntity);
+		service.createUser(userDto);
 	}
 
 	@DeleteMapping(value = "/user/{id}")
 	public void deleteUserById(@PathVariable long id) {
-		userRepo.deleteById(id);
+		service.deleteUserById(id);
 	}
 
+	
 	@GetMapping(path = "/project", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<ProjectDTO> getProjects() {
-		List<Project> projectList = projectRepo.findAll();
-		System.err.println("Project list Size" + projectList.size());
-		List<ProjectDTO> projDtoList = new ArrayList<ProjectDTO>();
-		for (Project project : projectList) {
-			ProjectDTO projectDTO = new ProjectDTO();
-			BeanUtils.copyProperties(project, projectDTO);
-			projDtoList.add(projectDTO);
-		}
-		System.err.println("DTO list Size" + projDtoList.size());
-		return projDtoList;
+	public List<ProjectDTO> getProjects() {		
+		return service.getProjectList();
 	}
 
-	@PostMapping(value = "/project", consumes = MediaType.APPLICATION_JSON_VALUE)
-	@Transactional
+	@PostMapping(value = "/project", consumes = MediaType.APPLICATION_JSON_VALUE)	
 	public void createProject(@RequestBody ProjectDTO projectDto) {
-		Project projectEntity = new Project();
-		BeanUtils.copyProperties(projectDto, projectEntity);
-		Project persistedProject = projectRepo.save(projectEntity);
-		System.err.println("persistedProject e" + persistedProject.getProjectId() + " " + projectDto.getManagerId());
-		if (!StringUtils.isEmpty(projectDto.getManagerId())) {
-			System.err
-					.println("persistedProject e" + persistedProject.getProjectId() + " " + projectDto.getManagerId());
-			userRepo.addProject(persistedProject.getProjectId(), projectDto.getManagerId());
-
-		}
+		service.createProject(projectDto);
 	}
 
 	@GetMapping(path = "/task", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<TaskDTO> getTasks() {
-		List<Task> taskList = taskRepo.findAll();
-		System.err.println("taskList list Size" + taskList.size());
-		List<TaskDTO> taskDtoList = new ArrayList<TaskDTO>();
-		for (Task task : taskList) {
-			TaskDTO taskDTO = new TaskDTO();
-			BeanUtils.copyProperties(task, taskDTO);
-			taskDtoList.add(taskDTO);
-		}
-		System.err.println("DTO list Size" + taskDtoList.size());
-		return taskDtoList;
+	public List<TaskDTO> getTasks() {			
+		return service.getTasksList();
 	}
 
 	@PostMapping(value = "/task", consumes = MediaType.APPLICATION_JSON_VALUE)
-	@Transactional
 	public void createTask(@RequestBody TaskDTO taskDto) {
-		Task taskEntity = new Task();
-		BeanUtils.copyProperties(taskDto, taskEntity);
-		Task persistedTask = taskRepo.save(taskEntity);
-		// System.err.println("persistedProject e" + persistedProject.getProjectId() +"
-		// "+taskDto.getManagerId());
-
+		service.createTask(taskDto);
 	}
 
 	@GetMapping(path = "/parenttask", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<ParentTaskDTO> getParentTasks() {
-		List<ParentTask> parentTaskList = parentRepo.findAll();
-		System.err.println("parentTaskList list Size" + parentTaskList.size());
-		List<ParentTaskDTO> parentTaskDtoList = new ArrayList<ParentTaskDTO>();
-		for (ParentTask task : parentTaskList) {
-			ParentTaskDTO taskDTO = new ParentTaskDTO();
-			BeanUtils.copyProperties(task, taskDTO);
-			parentTaskDtoList.add(taskDTO);
-		}
-		System.err.println("DTO list Size" + parentTaskDtoList.size());
-		return parentTaskDtoList;
+	public List<ParentTaskDTO> getParentTasks() {		
+		return service.getParentTasks();
 	}
 }

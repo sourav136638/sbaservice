@@ -3,6 +3,7 @@ package com.sba.dto;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonView;
 
 
@@ -16,7 +17,9 @@ public class ProjectDTO implements Serializable{
 	private static final long serialVersionUID = 1113282337154615257L;
 	private long projectId;
 	private String project;
+	@JsonFormat(pattern="dd-MMM-yyyy")
 	private Date startdate;
+	@JsonFormat(pattern="dd-MMM-yyyy")
 	private Date enddate;
 	private int priority;
 	private long managerId;//user_id

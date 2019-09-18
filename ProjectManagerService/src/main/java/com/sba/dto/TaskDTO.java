@@ -3,6 +3,8 @@ package com.sba.dto;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class TaskDTO implements Serializable{
 	
 	/**
@@ -11,7 +13,9 @@ public class TaskDTO implements Serializable{
 	private static final Long serialVersionUID = -6138934114306740539L;
 	private Long taskId;
 	private String task;
+	@JsonFormat(pattern="dd-MMM-yyyy")
 	private Date startDate;
+	@JsonFormat(pattern="dd-MMM-yyyy")
 	private Date endDate;
 	private int priority;	
 	private String status;
