@@ -29,3 +29,5 @@ build/
 
 ### VS Code ###
 .vscode/
+/console
+/console.2019-09-18.0.gz
