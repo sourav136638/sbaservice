@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +24,7 @@ import com.sba.services.AppServiceImpl;
 @RestController
 @RequestMapping(value = "/api", produces = { MediaType.APPLICATION_JSON_VALUE })
 public class AppController {
+	@SuppressWarnings("unused")
 	private static final Logger log = LoggerFactory.getLogger(AppController.class);
 	
 	@Autowired 
@@ -65,6 +67,11 @@ public class AppController {
 		service.createTask(taskDto);
 	}
 
+	@PutMapping(value = "/task/{id}")
+	public void endTask(@PathVariable long id) {
+		service.completeTask(id);
+	}
+	
 	@GetMapping(path = "/parenttask", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<ParentTaskDTO> getParentTasks() {		
 		return service.getParentTasks();

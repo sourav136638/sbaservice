@@ -20,6 +20,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	@Modifying
     void addProject(@Param(value = "projectId") long projectId,@Param(value = "userId") long userId);
 		
+	@Query("UPDATE User SET taskId=:taskId WHERE userId=:userId")
+	@Modifying
+    void addTask(@Param(value = "taskId") long taskId,@Param(value = "userId") long userId);
 	
 	
 	

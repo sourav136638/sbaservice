@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.sba.api.AppController;
+import com.sba.api.util.AppConstant;
 import com.sba.dto.ParentTaskDTO;
 import com.sba.dto.ProjectDTO;
 import com.sba.dto.TaskDTO;
@@ -33,12 +34,12 @@ import com.sba.repository.UserRepository;
 
 @Service
 public class AppServiceImpl {
-	
+
 	private static final Logger log = LoggerFactory.getLogger(AppController.class);
-	
+
 	@Autowired
 	UserRepository userRepo;
-	
+
 	@Autowired
 	ProjectRepository projectRepo;
 
@@ -47,8 +48,7 @@ public class AppServiceImpl {
 
 	@Autowired
 	ParentRepository parentRepo;
-	
-	
+
 	public AppServiceImpl(UserRepository userRepo, ProjectRepository projectRepo, TaskRepository taskRepo,
 			ParentRepository parentRepo) {
 		super();
@@ -58,31 +58,29 @@ public class AppServiceImpl {
 		this.parentRepo = parentRepo;
 	}
 
-
-
 	public List<UserDTO> getUserList() {
-		List<User> userList = userRepo.findAll();		
+		List<User> userList = userRepo.findAll();
 		List<UserDTO> userDtoList = new ArrayList<>();
 		for (User user : userList) {
 			UserDTO userDTO = new UserDTO();
 			BeanUtils.copyProperties(user, userDTO);
 			userDtoList.add(userDTO);
-		}	
+		}
 		return userDtoList;
 	}
-	
+
 	@Transactional
 	public void createUser(UserDTO userDto) {
 		User userEntity = new User();
 		BeanUtils.copyProperties(userDto, userEntity);
 		userRepo.save(userEntity);
 	}
-	
+
 	@Transactional
 	public void deleteUserById(long id) {
 		userRepo.deleteById(id);
 	}
-	
+
 	public List<ProjectDTO> getProjectList() {
 		List<Project> projectList = projectRepo.findAll();
 		List<ProjectDTO> projDtoList = new ArrayList<>();
@@ -93,42 +91,65 @@ public class AppServiceImpl {
 		}
 		return projDtoList;
 	}
-	
+
 	@Transactional
 	public void createProject(ProjectDTO projectDto) {
 		Project projectEntity = new Project();
 		BeanUtils.copyProperties(projectDto, projectEntity);
-		Project persistedProject = projectRepo.save(projectEntity);		
+		Project persistedProject = projectRepo.save(projectEntity);
 		if (!StringUtils.isEmpty(projectDto.getManagerId())) {
 			userRepo.addProject(persistedProject.getProjectId(), projectDto.getManagerId());
 		}
 	}
-	
+
 	public List<TaskDTO> getTasksList() {
-		List<Task> taskList = taskRepo.findAll();		
+		List<Task> taskList = taskRepo.findAll();
 		List<TaskDTO> taskDtoList = new ArrayList<>();
 		for (Task task : taskList) {
 			TaskDTO taskDTO = new TaskDTO();
 			BeanUtils.copyProperties(task, taskDTO);
 			taskDtoList.add(taskDTO);
-		}		
+		}
 		return taskDtoList;
 	}
-	
+
 	@Transactional
 	public void createTask(TaskDTO taskDto) {
 		Task taskEntity = new Task();
 		BeanUtils.copyProperties(taskDto, taskEntity);
-		taskRepo.save(taskEntity);		
+		if (taskDto != null) {
+			if(!taskDto.isParent()){			
+				if (StringUtils.isEmpty(taskDto.getTaskId())) {
+					taskEntity.setStatus(AppConstant.STATUS_OPEN);
+				}
+				Task persistedTask = taskRepo.save(taskEntity);
+	
+				if (!StringUtils.isEmpty(taskDto.getUserId())) {
+					userRepo.addTask(persistedTask.getTaskId(), taskDto.getUserId());
+				}
+			}else {
+				ParentTask parentEntity = new ParentTask();
+				parentEntity.setParentTask(taskDto.getTask());
+				parentRepo.save(parentEntity);
+			}
+		}
+
 	}
+
+	@Transactional
+	public void completeTask(long id) {		
+		taskRepo.updateStatus(AppConstant.STATUS_COMPLETED,id);
+	}
+	
 	public List<ParentTaskDTO> getParentTasks() {
-		List<ParentTask> parentTaskList = parentRepo.findAll();		
+		List<ParentTask> parentTaskList = parentRepo.findAll();
 		List<ParentTaskDTO> parentTaskDtoList = new ArrayList<>();
 		for (ParentTask task : parentTaskList) {
 			ParentTaskDTO taskDTO = new ParentTaskDTO();
 			BeanUtils.copyProperties(task, taskDTO);
 			parentTaskDtoList.add(taskDTO);
-		}		
+		}
 		return parentTaskDtoList;
 	}
+
 }

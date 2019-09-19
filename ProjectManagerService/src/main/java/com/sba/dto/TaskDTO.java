@@ -10,7 +10,11 @@ public class TaskDTO implements Serializable{
 	/**
 	 * 
 	 */
-	private static final Long serialVersionUID = -6138934114306740539L;
+	private static final long serialVersionUID = -2740807743032360978L;
+	/**
+	 * 
+	 */
+	
 	private Long taskId;
 	private String task;
 	@JsonFormat(pattern="dd-MMM-yyyy")

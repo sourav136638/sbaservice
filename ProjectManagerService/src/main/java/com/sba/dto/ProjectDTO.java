@@ -22,7 +22,8 @@ public class ProjectDTO implements Serializable{
 	@JsonFormat(pattern="dd-MMM-yyyy")
 	private Date enddate;
 	private int priority;
-	private long managerId;//user_id
+	private long managerId;
+	private int noOfTask;
 	private int completed;
 	/**
 	 * @return the projectId
@@ -96,6 +97,19 @@ public class ProjectDTO implements Serializable{
 	public void setManagerId(long managerId) {
 		this.managerId = managerId;
 	}
+	
+	/**
+	 * @return the noOfTask
+	 */
+	public int getNoOfTask() {
+		return noOfTask;
+	}
+	/**
+	 * @param noOfTask the noOfTask to set
+	 */
+	public void setNoOfTask(int noOfTask) {
+		this.noOfTask = noOfTask;
+	}
 	/**
 	 * @return the completed
 	 */
@@ -108,15 +122,7 @@ public class ProjectDTO implements Serializable{
 	public void setCompleted(int completed) {
 		this.completed = completed;
 	}
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "ProjectDTO [projectId=" + projectId + ", project=" + project + ", startdate=" + startdate + ", enddate="
-				+ enddate + ", priority=" + priority + ", managerId=" + managerId + ", completed=" + completed + "]";
-	}
-	
+
 	
 	
 }
