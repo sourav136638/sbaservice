@@ -1,0 +1,32 @@
+[
+    {
+        "projectId": 1,
+        "projectName": "Boots",
+        "startDate": "1/1/2019",
+        "endDate": "12/31/2019",
+        "priority": "5",
+        "status": "In-Progress",
+        "managerId": "470009",
+        "noOfTasks": 2
+    },
+    {
+        "projectId": 2,
+        "projectName": "POMS",
+        "startDate": "1/1/2019",
+        "endDate": "12/31/2019",
+        "priority": "10",
+        "status": "In-Progress",
+        "managerId": "430295",
+        "noOfTasks": 2
+    },
+    {
+        "projectId": 3,
+        "projectName": "Flex",
+        "startDate": "1/1/2019",
+        "endDate": "12/31/2019",
+        "priority": "20",
+        "status": "In-Progress",
+        "managerId": "555194",
+        "noOfTasks": 2
+    }   
+]

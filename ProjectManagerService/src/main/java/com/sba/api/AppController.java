@@ -31,6 +31,12 @@ public class AppController {
 	AppServiceImpl service;
 	
 
+	
+	public AppController(AppServiceImpl service) {
+		super();
+		this.service = service;
+	}
+
 	@GetMapping(path = "/user", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<UserDTO> getUsers() {		
 		return service.getUserList();
