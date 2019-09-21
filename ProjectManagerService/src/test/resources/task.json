@@ -1,29 +1,13 @@
 {
-	"taskId": 1,
-	"taskName": "Report generation",
-	"startDate": "1/1/2019",
-	"endDate": "12/31/2019",
-	"priority": "5",
-	"status": "A",
-	"parentTask": {
-		"parentTaskId": 1,
-		"parentTaskName": "TDD",
-		"projectId": "1"
-	},
-	"employeeDetails": {
-		"employeeId": "555194",
-		"firstName": "Upasak",
-		"lastName": "Ganguly",
-		"status": "A"
-	},
-	"projectDetails": {
-		"projectId": 3,
-        "projectName": "Flex",
-		"startDate": "1/1/2019",
-        "endDate": "12/31/2019",
-		"priority": "20",
-		"status": "In-Progress",
-		"managerId": "555194",
-		"noOfTasks": null
-	}
-}
+        "taskId": 16,
+        "task": "Task 12",
+        "startDate": null,
+        "endDate": null,
+        "priority": 1,
+        "status": "abcd",
+        "projectId": 100,
+        "parentId": 1,
+        "userId": null,
+        "parentTask": null,
+        "parent": false
+    }

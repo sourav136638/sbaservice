@@ -1,6 +1,7 @@
 package com.sba.api;
 
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
@@ -18,15 +19,15 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.web.context.WebApplicationContext;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sba.dto.ParentTaskDTO;
+import com.sba.dto.ProjectDTO;
 import com.sba.dto.TaskDTO;
 import com.sba.dto.UserDTO;
 import com.sba.services.AppServiceImpl;
@@ -89,8 +90,15 @@ public class AppControllerTest {
 	}
 
 	@Test
-	public void testCreateUser() {
-		assertTrue(true);
+	public void testCreateUser() throws JsonParseException, JsonMappingException, IOException {
+		UserDTO user = null;
+		ClassLoader classLoader = getClass().getClassLoader();
+		File file = new File(classLoader.getResource("user.json").getFile());
+		user = mapper.readValue(file, UserDTO.class);
+		doNothing().when(service).createUser(user);
+		appController.createUser(user);
+		verify(service,times(1)).createUser(user);
+		verifyNoMoreInteractions(service);
 	}
 
 	@Test
@@ -99,28 +107,69 @@ public class AppControllerTest {
 	}
 
 	@Test
-	public void testGetProjects() {
-		assertTrue(true);
+	public void testGetProjects() throws JsonParseException, JsonMappingException, IOException {
+		TypeReference<List<ProjectDTO>> mapType = new TypeReference<List<ProjectDTO>>() {};
+		List<ProjectDTO> allProjects = null;
+		ClassLoader classLoader = getClass().getClassLoader();
+		File file = new File(classLoader.getResource("projects.json").getFile());
+		allProjects = mapper.readValue(file, mapType);
+		when(service.getProjectList()).thenReturn(allProjects);
+		List<ProjectDTO> allProjectsList = appController.getProjects();
+		Assert.assertNotNull(allProjectsList);
+		verify(service,times(1)).getProjectList();
+		verifyNoMoreInteractions(service);
 	}
 
 	@Test
-	public void testCreateProject() {
-		assertTrue(true);
+	public void testCreateProject()  throws JsonParseException, JsonMappingException, IOException {
+		ProjectDTO project = null;
+		ClassLoader classLoader = getClass().getClassLoader();
+		File file = new File(classLoader.getResource("project.json").getFile());
+		project = mapper.readValue(file, ProjectDTO.class);
+		doNothing().when(service).createProject(project);
+		appController.createProject(project);
+		verify(service,times(1)).createProject(project);
+		verifyNoMoreInteractions(service);
 	}
 
 	@Test
-	public void testGetTasks() {
-		assertTrue(true);
+	public void testGetTasks() throws JsonParseException, JsonMappingException, IOException {
+		TypeReference<List<TaskDTO>> mapType = new TypeReference<List<TaskDTO>>() {};
+		List<TaskDTO> allTasks = null;
+		ClassLoader classLoader = getClass().getClassLoader();
+		File file = new File(classLoader.getResource("tasks.json").getFile());
+		allTasks = mapper.readValue(file, mapType);
+		when(service.getTasksList()).thenReturn(allTasks);
+		List<TaskDTO> allTasksList = appController.getTasks();
+		Assert.assertNotNull(allTasksList);
+		verify(service,times(1)).getTasksList();
+		verifyNoMoreInteractions(service);
 	}
 
 	@Test
-	public void testCreateTask() {
-		assertTrue(true);
+	public void testCreateTask() throws JsonParseException, JsonMappingException, IOException {
+		TaskDTO task = null;
+		ClassLoader classLoader = getClass().getClassLoader();
+		File file = new File(classLoader.getResource("task.json").getFile());
+		task = mapper.readValue(file, TaskDTO.class);
+		doNothing().when(service).createTask(task);
+		appController.createTask(task);
+		verify(service,times(1)).createTask(task);
+		verifyNoMoreInteractions(service);
 	}
 
 	@Test
-	public void testGetParentTasks() {
-		assertTrue(true);
+	public void testGetParentTasks() throws JsonParseException, JsonMappingException, IOException {
+		TypeReference<List<ParentTaskDTO>> mapType = new TypeReference<List<ParentTaskDTO>>() {};
+		List<ParentTaskDTO> allParentTasks = null;
+		ClassLoader classLoader = getClass().getClassLoader();
+		File file = new File(classLoader.getResource("parenttasks.json").getFile());
+		allParentTasks = mapper.readValue(file, mapType);
+		when(service.getParentTasks()).thenReturn(allParentTasks);
+		List<ParentTaskDTO> allParentTasksList = appController.getParentTasks();
+		Assert.assertNotNull(allParentTasksList);
+		verify(service,times(1)).getParentTasks();
+		verifyNoMoreInteractions(service);
 	}
 
 }

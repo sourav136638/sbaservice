@@ -1,9 +1,10 @@
 {
-	"projectId": 1,
-    "projectName": "Boots",
-    "startDate": "1/1/2019",
-    "endDate": "12/31/2019",
-    "priority": "5",
-    "status": "A",
-    "managerId": "470009"
-}
+        "projectId": 113,
+        "project": "Project101",
+        "startdate": null,
+        "enddate": null,
+        "priority": 1,
+        "managerId": 0,
+        "noOfTask": 0,
+        "completed": 0
+    }

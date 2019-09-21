@@ -1,89 +1,54 @@
 [
     {
-	"taskId": 1,
-	"taskName": "Report generation",
-	"startDate": "1/1/2019",
-	"endDate": "12/31/2019",
-	"priority": "5",
-	"status": "A",
-	"parentTask": {
-		"parentTaskId": 1,
-		"parentTaskName": "TDD",
-		"projectId": "1"
-	},
-	"employeeDetails": {
-		"employeeId": "555194",
-		"firstName": "Upasak",
-		"lastName": "Ganguly",
-		"status": "A"
-	},
-	"projectDetails": {
-		"projectId": 3,
-        "projectName": "Flex",
-		"startDate": "1/1/2019",
-        "endDate": "12/31/2019",
-		"priority": "20",
-		"status": "In-Progress",
-		"managerId": "555194",
-		"noOfTasks": null
-	}
-},
-    {
-        "taskId": 2,
-        "taskName": "Sanity testing",
-        "startDate": "10/1/2019",
-        "endDate": "12/2/2019",
-        "priority": "10",
-        "status": "A",
-        "parentTask": {
-            "parentTaskId": 3,
-            "parentTaskName": "DBCR Creation",
-            "projectId": "3"
-        },
-        "employeeDetails": {
-            "employeeId": "430295",
-            "firstName": "Koushik",
-            "lastName": "Dey",
-            "status": "A"
-        },
-        "projectDetails": {
-            "projectId": 2,
-	        "projectName": "POMS",
-	        "startDate": "1/1/2019",
-	        "endDate": "12/31/2019",
-	        "priority": "10",
-	        "status": "In-Progress",
-	        "managerId": "430295",
-            "noOfTasks": null
-        }
+        "taskId": 12,
+        "task": "Task 12",
+        "startDate": "16-Sep-2019",
+        "endDate": "16-Dec-2019",
+        "priority": 1,
+        "status": "Open",
+        "projectId": 100,
+        "parentId": 1,
+        "userId": null,
+        "parentTask": null,
+        "parent": false
     },
     {
-        "taskId": 3,
-        "taskName": "Weekend support",
-        "startDate": "11/2/2019",
-        "endDate": "16/3/2019",
-        "priority": "15",
-        "status": "A",
-        "parentTask": {
-            "parentTaskId": 4,
-            "parentTaskName": "CRQ",
-            "projectId": "4"
-        },
-        "employeeDetails": {
-            "employeeId": "555194",
-            "firstName": "Upasak",
-            "lastName": "Ganguly",
-            "status": "A"
-        },
-        "projectDetails": {
-            "projectId": 3,
-	        "projectName": "Flex",
-	        "startDate": "1/1/2019",
-	        "endDate": "12/31/2019",
-	        "priority": "20",
-	        "status": "In-Progress",
-	        "managerId": "555194",
-            "noOfTasks": null
-        }
-    }  
+        "taskId": 13,
+        "task": "Task 13",
+        "startDate": "17-Sep-2019",
+        "endDate": "17-Sep-2019",
+        "priority": 1,
+        "status": "Open",
+        "projectId": null,
+        "parentId": null,
+        "userId": null,
+        "parentTask": null,
+        "parent": false
+    },
+    {
+        "taskId": 15,
+        "task": "Task 13",
+        "startDate": "17-Sep-2019",
+        "endDate": "17-Sep-2019",
+        "priority": 1,
+        "status": "Completed",
+        "projectId": 10,
+        "parentId": 10,
+        "userId": null,
+        "parentTask": null,
+        "parent": false
+    },
+    {
+        "taskId": 16,
+        "task": "Task 12",
+        "startDate": "16-Sep-2019",
+        "endDate": "16-Dec-2019",
+        "priority": 1,
+        "status": "abcd",
+        "projectId": 100,
+        "parentId": 1,
+        "userId": null,
+        "parentTask": null,
+        "parent": false
+    }
 ]

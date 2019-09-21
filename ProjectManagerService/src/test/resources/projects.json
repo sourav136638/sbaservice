@@ -1,32 +1,72 @@
 [
     {
-        "projectId": 1,
-        "projectName": "Boots",
-        "startDate": "1/1/2019",
-        "endDate": "12/31/2019",
-        "priority": "5",
-        "status": "In-Progress",
-        "managerId": "470009",
-        "noOfTasks": 2
+        "projectId": 100,
+        "project": "Project100",
+        "startdate": null,
+        "enddate": null,
+        "priority": 1,
+        "managerId": 0,
+        "noOfTask": 0,
+        "completed": 0
+    },    
+    {
+        "projectId": 104,
+        "project": "Project101",
+        "startdate": null,
+        "enddate": null,
+        "priority": 1,
+        "managerId": 0,
+        "noOfTask": 0,
+        "completed": 0
     },
     {
-        "projectId": 2,
-        "projectName": "POMS",
-        "startDate": "1/1/2019",
-        "endDate": "12/31/2019",
-        "priority": "10",
-        "status": "In-Progress",
-        "managerId": "430295",
-        "noOfTasks": 2
+        "projectId": 105,
+        "project": "Project101",
+        "startdate": null,
+        "enddate": null,
+        "priority": 1,
+        "managerId": 0,
+        "noOfTask": 0,
+        "completed": 0
     },
     {
-        "projectId": 3,
-        "projectName": "Flex",
-        "startDate": "1/1/2019",
-        "endDate": "12/31/2019",
-        "priority": "20",
-        "status": "In-Progress",
-        "managerId": "555194",
-        "noOfTasks": 2
-    }   
+        "projectId": 106,
+        "project": "Project101",
+        "startdate": null,
+        "enddate": null,
+        "priority": 1,
+        "managerId": 0,
+        "noOfTask": 0,
+        "completed": 0
+    },
+    {
+        "projectId": 107,
+        "project": "Project101",
+        "startdate": null,
+        "enddate": null,
+        "priority": 1,
+        "managerId": 0,
+        "noOfTask": 0,
+        "completed": 0
+    },
+    {
+        "projectId": 108,
+        "project": "Project101",
+        "startdate": null,
+        "enddate": null,
+        "priority": 1,
+        "managerId": 0,
+        "noOfTask": 0,
+        "completed": 0
+    },    
+    {
+        "projectId": 113,
+        "project": "Project101",
+        "startdate": null,
+        "enddate": null,
+        "priority": 1,
+        "managerId": 0,
+        "noOfTask": 0,
+        "completed": 0
+    }
 ]

@@ -97,7 +97,7 @@ public class AppServiceImpl {
 		Project projectEntity = new Project();
 		BeanUtils.copyProperties(projectDto, projectEntity);
 		Project persistedProject = projectRepo.save(projectEntity);
-		if (!StringUtils.isEmpty(projectDto.getManagerId())) {
+		if (!StringUtils.isEmpty(projectDto.getManagerId())&& projectDto.getManagerId()>0) {
 			userRepo.addProject(persistedProject.getProjectId(), projectDto.getManagerId());
 		}
 	}
