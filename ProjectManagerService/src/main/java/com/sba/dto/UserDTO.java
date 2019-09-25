@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.math.BigInteger;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import com.sba.entities.Project;
-import com.sba.entities.Task;
 
 @JsonView
 public class UserDTO implements Serializable{

@@ -22,6 +22,7 @@ public class User implements Serializable {
 	private long taskId;
 
 	public User() {
+		//public constructor
 	}
 
 

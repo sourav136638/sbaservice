@@ -32,11 +32,9 @@ public class Task implements Serializable {
 	private Long projectId;
 	private Long parentId;
 
-	/*
-	 * private ParentTask parentTask; private Project project; private List<User>
-	 * users;
-	 */
+	
 	public Task() {
+		//Constructor
 	}
 
 
@@ -133,36 +131,5 @@ public class Task implements Serializable {
 	public void setParentId(Long parentId) {
 		this.parentId = parentId;
 	}
-
-	/*
-	 * //bi-directional many-to-one association to ParentTask
-	 * 
-	 * @ManyToOne
-	 * 
-	 * @JoinColumn(name="parent_id") public ParentTask getParentTask() { return
-	 * this.parentTask; }
-	 * 
-	 * public void setParentTask(ParentTask parentTask) { this.parentTask =
-	 * parentTask; }
-	 * 
-	 * 
-	 * //bi-directional many-to-one association to Project
-	 * 
-	 * @OneToOne
-	 * 
-	 * @JoinColumn(name="project_id") public Project getProject() { return
-	 * this.project; }
-	 * 
-	 * public void setProject(Project project) { this.project = project; }
-	 * 
-	 * 
-	 * //bi-directional many-to-one association to User
-	 * 
-	 * @OneToOne(mappedBy="task") public List<User> getUsers() { return this.users;
-	 * }
-	 * 
-	 * public void setUsers(List<User> users) { this.users = users; }
-	 */
-	
 
 }

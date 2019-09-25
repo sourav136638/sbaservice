@@ -22,9 +22,10 @@ public class ParentTask implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private long parentId;
 	private String parentTask;
-	/* private List<Task> tasks; */
+	
 
 	public ParentTask() {
+		//Constructor
 	}
 
 
@@ -50,14 +51,5 @@ public class ParentTask implements Serializable {
 	}
 
 
-	/*
-	 * //bi-directional many-to-one association to Task
-	 * 
-	 * @OneToMany(mappedBy="parentTask") public List<Task> getTasks() { return
-	 * this.tasks; }
-	 * 
-	 * public void setTasks(List<Task> tasks) { this.tasks = tasks; }
-	 * 
-	 */
 
 }
