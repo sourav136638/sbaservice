@@ -2435,3 +2435,71 @@ javax.persistence.TransactionRequiredException: Executing an update/delete query
 2019-09-25 21:09:27,630 INFO org.hibernate.hql.internal.QueryTranslatorFactoryInitiator [restartedMain] HHH000397: Using ASTQueryTranslatorFactory
 2019-09-25 21:09:27,847 INFO com.sba.ProjectManagerServiceApplication [restartedMain] Started ProjectManagerServiceApplication in 0.856 seconds (JVM running for 492.105)
 2019-09-25 21:09:33,084 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-09-25 21:11:25,097 INFO com.zaxxer.hikari.HikariDataSource [Thread-59] HikariPool-10 - Shutdown initiated...
+2019-09-25 21:11:25,098 INFO com.zaxxer.hikari.HikariDataSource [Thread-59] HikariPool-10 - Shutdown completed.
+2019-09-25 21:11:25,321 INFO com.sba.ProjectManagerServiceApplication [restartedMain] Starting ProjectManagerServiceApplication on souravs-MacBook-Pro-2.local with PID 2984 (/Users/sourav/git/sba2/ProjectManagerService/target/classes started by sourav in /Users/sourav/git/sba2/ProjectManagerService)
+2019-09-25 21:11:25,321 DEBUG com.sba.ProjectManagerServiceApplication [restartedMain] Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+2019-09-25 21:11:25,321 INFO com.sba.ProjectManagerServiceApplication [restartedMain] No active profile set, falling back to default profiles: default
+2019-09-25 21:11:25,548 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2019-09-25 21:11:25,548 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-09-25 21:11:25,551 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2019-09-25 21:11:25,630 INFO com.sba.filter.SimpleCORSFilter [restartedMain] SimpleCORSFilter init
+2019-09-25 21:11:25,654 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-11 - Starting...
+2019-09-25 21:11:25,656 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-11 - Start completed.
+2019-09-25 21:11:25,659 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-09-25 21:11:25,663 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-25 21:11:25,690 INFO org.hibernate.hql.internal.QueryTranslatorFactoryInitiator [restartedMain] HHH000397: Using ASTQueryTranslatorFactory
+2019-09-25 21:11:25,910 INFO com.sba.ProjectManagerServiceApplication [restartedMain] Started ProjectManagerServiceApplication in 0.6 seconds (JVM running for 610.167)
+2019-09-25 21:11:30,313 INFO com.zaxxer.hikari.HikariDataSource [Thread-65] HikariPool-11 - Shutdown initiated...
+2019-09-25 21:11:30,316 INFO com.zaxxer.hikari.HikariDataSource [Thread-65] HikariPool-11 - Shutdown completed.
+2019-09-25 21:11:30,506 INFO com.sba.ProjectManagerServiceApplication [restartedMain] Starting ProjectManagerServiceApplication on souravs-MacBook-Pro-2.local with PID 2984 (/Users/sourav/git/sba2/ProjectManagerService/target/classes started by sourav in /Users/sourav/git/sba2/ProjectManagerService)
+2019-09-25 21:11:30,506 DEBUG com.sba.ProjectManagerServiceApplication [restartedMain] Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+2019-09-25 21:11:30,506 INFO com.sba.ProjectManagerServiceApplication [restartedMain] No active profile set, falling back to default profiles: default
+2019-09-25 21:11:30,713 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2019-09-25 21:11:30,714 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-09-25 21:11:30,716 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2019-09-25 21:11:30,794 INFO com.sba.filter.SimpleCORSFilter [restartedMain] SimpleCORSFilter init
+2019-09-25 21:11:30,818 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-12 - Starting...
+2019-09-25 21:11:30,820 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-12 - Start completed.
+2019-09-25 21:11:30,823 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-09-25 21:11:30,826 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-25 21:11:30,854 INFO org.hibernate.hql.internal.QueryTranslatorFactoryInitiator [restartedMain] HHH000397: Using ASTQueryTranslatorFactory
+2019-09-25 21:11:31,084 INFO com.sba.ProjectManagerServiceApplication [restartedMain] Started ProjectManagerServiceApplication in 0.59 seconds (JVM running for 615.342)
+2019-09-25 21:11:56,656 INFO com.zaxxer.hikari.HikariDataSource [Thread-71] HikariPool-12 - Shutdown initiated...
+2019-09-25 21:11:56,659 INFO com.zaxxer.hikari.HikariDataSource [Thread-71] HikariPool-12 - Shutdown completed.
+2019-09-25 21:11:56,869 INFO com.sba.ProjectManagerServiceApplication [restartedMain] Starting ProjectManagerServiceApplication on souravs-MacBook-Pro-2.local with PID 2984 (/Users/sourav/git/sba2/ProjectManagerService/target/classes started by sourav in /Users/sourav/git/sba2/ProjectManagerService)
+2019-09-25 21:11:56,869 DEBUG com.sba.ProjectManagerServiceApplication [restartedMain] Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+2019-09-25 21:11:56,869 INFO com.sba.ProjectManagerServiceApplication [restartedMain] No active profile set, falling back to default profiles: default
+2019-09-25 21:11:57,086 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2019-09-25 21:11:57,086 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-09-25 21:11:57,089 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2019-09-25 21:11:57,169 INFO com.sba.filter.SimpleCORSFilter [restartedMain] SimpleCORSFilter init
+2019-09-25 21:11:57,193 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-13 - Starting...
+2019-09-25 21:11:57,196 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-13 - Start completed.
+2019-09-25 21:11:57,199 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-09-25 21:11:57,202 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-25 21:11:57,231 INFO org.hibernate.hql.internal.QueryTranslatorFactoryInitiator [restartedMain] HHH000397: Using ASTQueryTranslatorFactory
+2019-09-25 21:11:57,452 INFO com.sba.ProjectManagerServiceApplication [restartedMain] Started ProjectManagerServiceApplication in 0.594 seconds (JVM running for 641.71)
+2019-09-25 21:12:44,179 INFO com.zaxxer.hikari.HikariDataSource [Thread-77] HikariPool-13 - Shutdown initiated...
+2019-09-25 21:12:44,182 INFO com.zaxxer.hikari.HikariDataSource [Thread-77] HikariPool-13 - Shutdown completed.
+2019-09-25 21:12:44,368 INFO com.sba.ProjectManagerServiceApplication [restartedMain] Starting ProjectManagerServiceApplication on souravs-MacBook-Pro-2.local with PID 2984 (/Users/sourav/git/sba2/ProjectManagerService/target/classes started by sourav in /Users/sourav/git/sba2/ProjectManagerService)
+2019-09-25 21:12:44,368 DEBUG com.sba.ProjectManagerServiceApplication [restartedMain] Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+2019-09-25 21:12:44,368 INFO com.sba.ProjectManagerServiceApplication [restartedMain] No active profile set, falling back to default profiles: default
+2019-09-25 21:12:44,643 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2019-09-25 21:12:44,643 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-09-25 21:12:44,647 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2019-09-25 21:12:44,756 INFO com.sba.filter.SimpleCORSFilter [restartedMain] SimpleCORSFilter init
+2019-09-25 21:12:44,790 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-14 - Starting...
+2019-09-25 21:12:44,794 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-14 - Start completed.
+2019-09-25 21:12:44,798 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-09-25 21:12:44,803 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-09-25 21:12:44,839 INFO org.hibernate.hql.internal.QueryTranslatorFactoryInitiator [restartedMain] HHH000397: Using ASTQueryTranslatorFactory
+2019-09-25 21:12:45,085 INFO com.sba.ProjectManagerServiceApplication [restartedMain] Started ProjectManagerServiceApplication in 0.728 seconds (JVM running for 689.342)

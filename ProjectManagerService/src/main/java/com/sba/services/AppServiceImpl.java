@@ -140,6 +140,7 @@ public class AppServiceImpl {
 
 	@Transactional
 	public void completeTask(long id) {		
+		log.info("completeTask");
 		taskRepo.updateStatus(AppConstant.STATUS_COMPLETED,id);
 	}
 	
