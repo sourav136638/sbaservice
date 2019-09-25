@@ -3,13 +3,13 @@ package com.sba.services;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import com.sba.api.AppController;
@@ -80,13 +80,15 @@ public class AppServiceImpl {
 	public void deleteUserById(long id) {
 		userRepo.deleteById(id);
 	}
-
+	@Transactional(propagation=Propagation.SUPPORTS)
 	public List<ProjectDTO> getProjectList() {
 		List<Project> projectList = projectRepo.findAll();
 		List<ProjectDTO> projDtoList = new ArrayList<>();
 		for (Project project : projectList) {
 			ProjectDTO projectDTO = new ProjectDTO();
 			BeanUtils.copyProperties(project, projectDTO);
+			projectDTO.setNoOfTask(taskRepo.getCountOfTaskForProject(projectDTO.getProjectId()));
+			projectDTO.setCompleted(taskRepo.getCountOfCompletedTaskForProject(projectDTO.getProjectId()));
 			projDtoList.add(projectDTO);
 		}
 		return projDtoList;

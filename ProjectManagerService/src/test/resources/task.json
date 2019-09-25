@@ -1,13 +1,13 @@
 {
-        "taskId": 16,
+        "taskId": 12,
         "task": "Task 12",
-        "startDate": null,
-        "endDate": null,
+        "startDate": "2019-09-17",
+        "endDate": "2019-12-17",
         "priority": 1,
-        "status": "abcd",
+        "status": "Open",
         "projectId": 100,
         "parentId": 1,
         "userId": null,
         "parentTask": null,
         "parent": false
-    }
+ }
