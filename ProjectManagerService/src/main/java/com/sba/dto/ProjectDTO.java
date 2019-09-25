@@ -17,9 +17,10 @@ public class ProjectDTO implements Serializable{
 	private static final long serialVersionUID = 1113282337154615257L;
 	private long projectId;
 	private String project;
-	@JsonFormat(pattern="dd-MMM-yyyy")
+	
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date startdate;
-	@JsonFormat(pattern="dd-MMM-yyyy")
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date enddate;
 	private int priority;
 	private long managerId;

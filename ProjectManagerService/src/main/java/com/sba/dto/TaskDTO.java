@@ -17,9 +17,9 @@ public class TaskDTO implements Serializable{
 	
 	private Long taskId;
 	private String task;
-	@JsonFormat(pattern="dd-MMM-yyyy")
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date startDate;
-	@JsonFormat(pattern="dd-MMM-yyyy")
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date endDate;
 	private int priority;	
 	private String status;
