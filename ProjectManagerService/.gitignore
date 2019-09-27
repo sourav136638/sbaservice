@@ -31,3 +31,4 @@ build/
 .vscode/
 /console
 /console.2019-09-18.0.gz
+.log
